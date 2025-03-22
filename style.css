@@ -133,7 +133,7 @@ body {
 
 .header .text,
 .theme__options {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 700;
 }
 
@@ -143,18 +143,32 @@ body {
 
 .theme__options {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   list-style: none;
   grid-column: 2;
+  gap: 1rem;
 }
 
 .theme__slider {
   background-color: var(--very-dark-blue);
   content: "";
-  width: 5rem;
+  width: 6rem;
   height: 2rem;
   border-radius: 100px;
+  position: relative;
+}
+
+.theme__slider::after {
+  position: absolute;
+  content: "";
+  width: 1.4rem;
+  height: 1.4rem;
+  top: 50%;
+  left: 9%;
+  border-radius: 100px;
+  background-color: var(--key-red);
+  transform: translate(0, -50%);
 }
 
 /* BODY */
@@ -242,9 +256,11 @@ input[type="number"] {
 }
 
 .attribution {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   text-align: center;
+  color: var(--text-white);
+  margin-bottom: 2rem;
 }
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--key-red);
 }
