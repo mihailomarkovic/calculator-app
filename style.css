@@ -7,21 +7,24 @@ Responisive design
 :root {
   /* THEME 1 */
   /* BACKGROUND COLORS */
-  --darkest-blue: hsl(224, 36%, 15%);
-  --very-dark-blue: hsl(223, 31%, 20%);
-  --dark-blue: hsl(222, 26%, 31%);
+  --darkest-blue: rgb(24, 32, 52);
+  --very-dark-blue: rgb(35, 44, 67);
+  --dark-blue: rgb(58, 71, 100);
 
   /* TEXT COLORS */
-  --text-blue: hsl(221, 14%, 31%);
-  --text-white: hsl(0, 0%, 100%);
+  --text-blue: rgb(68, 75, 90);
+  --text-white: rgb(255, 255, 255);
 
   /* BUTTONS */
-  --key-background: hsl(30, 25%, 89%);
+  --key-background: rgb(234, 227, 220);
   --key-shadow: rgb(180, 165, 151);
-  --key-red: hsl(6, 63%, 50%);
-  --key-red-shadow: hsl(6, 70%, 34%);
-  --key-blue: hsl(225, 21%, 49%);
-  --key-blue-shadow: hsl(224, 28%, 35%);
+  --key-active: rgb(255, 255, 255);
+  --key-red: rgb(208, 63, 47);
+  --key-red-shadow: rgb(147, 38, 26);
+  --key-red-active: rgb(236, 134, 123);
+  --key-blue: rgb(99, 112, 151);
+  --key-blue-shadow: rgb(64, 78, 114);
+  --key-blue-active: rgb(178, 189, 222);
 }
 
 /* 
@@ -104,7 +107,7 @@ body {
 
 .text {
   text-transform: uppercase;
-  letter-spacing: 0.1rem;
+  letter-spacing: 1.5px;
 }
 
 /* HEADER */
@@ -156,13 +159,29 @@ body {
 
 /* BODY */
 
-.calc-input {
+#calc-input {
   margin-top: 3rem;
   width: 100%;
   height: 10rem;
   background-color: var(--darkest-blue);
   border-radius: 7.5px;
   border: none;
+  color: var(--text-white);
+  font-family: inherit;
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-align: right;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 15px;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
 }
 
 .keypad {
@@ -186,15 +205,20 @@ body {
   background-color: var(--key-background);
   color: var(--text-blue);
   box-shadow: 0 0.45rem 0 0 var(--key-shadow);
-  width: 70%;
+  width: 80%;
   height: 6rem;
   border-radius: 10px;
   border: none;
+  cursor: pointer;
+}
+
+.keypad__btn:active {
+  background-color: var(--key-active);
 }
 
 .keypad__btn--big {
   grid-column: span 2;
-  width: 84%;
+  width: 90%;
 }
 
 .keypad__btn.keypad__btn--special {
@@ -203,10 +227,18 @@ body {
   box-shadow: 0 0.45rem 0 0 var(--key-blue-shadow);
 }
 
+.keypad__btn.keypad__btn--special:active {
+  background-color: var(--key-blue-active);
+}
+
 .keypad__btn.keypad__btn--equal {
   background-color: var(--key-red);
   color: var(--text-white);
   box-shadow: 0 0.45rem 0 0 var(--key-red-shadow);
+}
+
+.keypad__btn.keypad__btn--equal:active {
+  background-color: var(--key-red-active);
 }
 
 .attribution {
