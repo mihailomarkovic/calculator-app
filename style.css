@@ -10,18 +10,18 @@ Responisive design
   --darkest-blue: hsl(224, 36%, 15%);
   --very-dark-blue: hsl(223, 31%, 20%);
   --dark-blue: hsl(222, 26%, 31%);
-  --normal-blue: hsl(225, 21%, 49%);
-  --shadow-blue: hsl(224, 28%, 35%);
 
   /* TEXT COLORS */
   --text-blue: hsl(221, 14%, 31%);
   --text-white: hsl(0, 0%, 100%);
 
   /* BUTTONS */
-  --button-red: hsl(6, 63%, 50%);
-  --button-dark-red: hsl(6, 70%, 34%);
   --key-background: hsl(30, 25%, 89%);
-  --key-shadow: hsl(28, 16%, 65%);
+  --key-shadow: rgb(180, 165, 151);
+  --key-red: hsl(6, 63%, 50%);
+  --key-red-shadow: hsl(6, 70%, 34%);
+  --key-blue: hsl(225, 21%, 49%);
+  --key-blue-shadow: hsl(224, 28%, 35%);
 }
 
 /* 
@@ -104,6 +104,7 @@ body {
 
 .text {
   text-transform: uppercase;
+  letter-spacing: 0.1rem;
 }
 
 /* HEADER */
@@ -178,7 +179,14 @@ body {
 }
 
 .keypad__btn {
-  width: 9rem;
+  font-family: inherit;
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-color: var(--key-background);
+  color: var(--text-blue);
+  box-shadow: 0 0.45rem 0 0 var(--key-shadow);
+  width: 70%;
   height: 6rem;
   border-radius: 10px;
   border: none;
@@ -186,6 +194,19 @@ body {
 
 .keypad__btn--big {
   grid-column: span 2;
+  width: 84%;
+}
+
+.keypad__btn.keypad__btn--special {
+  background-color: var(--key-blue);
+  color: var(--text-white);
+  box-shadow: 0 0.45rem 0 0 var(--key-blue-shadow);
+}
+
+.keypad__btn.keypad__btn--equal {
+  background-color: var(--key-red);
+  color: var(--text-white);
+  box-shadow: 0 0.45rem 0 0 var(--key-red-shadow);
 }
 
 .attribution {
