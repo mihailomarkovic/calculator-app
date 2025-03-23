@@ -7,13 +7,15 @@ Responisive design
 :root {
   /* THEME 1 */
   /* BACKGROUND COLORS */
-  --darkest-blue: rgb(24, 32, 52);
-  --very-dark-blue: rgb(35, 44, 67);
-  --dark-blue: rgb(58, 71, 100);
+  --screen-background: rgb(58, 71, 100);
+  --input-background: rgb(24, 32, 52);
+  --keypad-background: rgb(35, 44, 67);
 
   /* TEXT COLORS */
-  --text-blue: rgb(68, 75, 90);
-  --text-white: rgb(255, 255, 255);
+  --basic-text: rgb(255, 255, 255);
+  --key-numbers: rgb(68, 75, 90);
+  --key-text: rgb(255, 255, 255);
+  --key-equal: rgb(255, 255, 255);
 
   /* BUTTONS */
   --key-background: rgb(234, 227, 220);
@@ -27,59 +29,55 @@ Responisive design
   --key-blue-active: rgb(178, 189, 222);
 }
 
-/* 
-### Theme 2
+.second-theme {
+  /* THEME 2 */
+  /* BACKGROUND COLORS */
+  --screen-background: rgb(230, 230, 230);
+  --input-background: rgb(237, 237, 237);
+  --keypad-background: rgb(209, 204, 204);
 
-#### Backgrounds
+  /* TEXT COLORS */
+  --basic-text: rgb(53, 53, 44);
+  --key-numbers: rgb(53, 53, 44);
+  --key-text: rgb(255, 255, 255);
+  --key-equal: rgb(255, 255, 255);
 
-- Light gray (main background): hsl(0, 0%, 90%)
-- Grayish red (toggle background, keypad background): hsl(0, 5%, 81%)
-- Very light gray (screen background): hsl(0, 0%, 93%)
+  /* BUTTONS */
+  --key-background: rgb(229, 228, 225);
+  --key-shadow: rgb(166, 157, 145);
+  --key-active: rgb(255, 255, 255);
+  --key-red: rgb(202, 85, 2);
+  --key-red-shadow: rgb(137, 57, 1);
+  --key-red-active: rgb(246, 139, 63);
+  --key-blue: rgb(55, 127, 134);
+  --key-blue-shadow: rgb(27, 95, 101);
+  --key-blue-active: rgb(125, 200, 207);
+}
 
-#### Keys
+.third-theme {
+  /* THEME 3 */
+  /* BACKGROUND COLORS */
+  --screen-background: rgb(22, 6, 40);
+  --input-background: rgb(29, 9, 52);
+  --keypad-background: rgb(29, 9, 52);
 
-- Dark moderate cyan (key background): hsl(185, 42%, 37%)
-- Very dark cyan (key shadow): hsl(185, 58%, 25%)
+  /* TEXT COLORS */
+  --basic-text: rgb(255, 229, 61);
+  --key-numbers: rgb(255, 229, 61);
+  --key-text: rgb(255, 255, 255);
+  --key-equal: hsl(198, 20%, 13%);
 
-- Orange (key background, toggle): hsl(25, 98%, 40%)
-- Dark orange (key shadow): hsl(25, 99%, 27%)
-
-- Light grayish yellow (key background): hsl(45, 7%, 89%)
-- Dark grayish orange (key shadow): hsl(35, 11%, 61%)
-
-#### Text
-
-- Very dark grayish yellow: hsl(60, 10%, 19%)
-- White (text): hsl(0, 0%, 100%)
-*/
-
-/* 
-### Theme 3
-
-#### Backgrounds
-
-- Very dark violet (main background): hsl(268, 75%, 9%)
-- Very dark violet (toggle background, keypad background, screen background): hsl(268, 71%, 12%)
-
-#### Keys
-
-- Dark violet (key background): hsl(281, 89%, 26%)
-- Vivid magenta (key shadow): hsl(285, 91%, 52%)
-
-- Pure cyan (key background, toggle): hsl(176, 100%, 44%)
-- Soft cyan (key shadow): hsl(177, 92%, 70%)
-
-- Very dark violet (key background): hsl(268, 47%, 21%)
-- Dark magenta (key shadow): hsl(290, 70%, 36%)
-
-#### Text
-
-- Light yellow: hsl(52, 100%, 62%)
-- Very dark blue: hsl(198, 20%, 13%)
-- White (text): hsl(0, 0%, 100%)
-
-## Typography
-*/
+  /* BUTTONS */
+  --key-background: rgb(52, 28, 79);
+  --key-shadow: rgb(135, 28, 156);
+  --key-active: rgb(121, 71, 179);
+  --key-red: rgb(0, 224, 209);
+  --key-red-shadow: rgb(108, 249, 242);
+  --key-red-active: rgb(149, 255, 248);
+  --key-blue: rgb(88, 7, 125);
+  --key-blue-shadow: rgb(188, 21, 244);
+  --key-blue-active: rgb(158, 81, 194);
+}
 
 *,
 *::before,
@@ -97,7 +95,7 @@ html {
 body {
   font-size: 3.2rem;
   font-family: "League Spartan", sans-serif;
-  background-color: var(--dark-blue);
+  background-color: var(--screen-background);
 }
 
 .container {
@@ -116,7 +114,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  color: var(--text-white);
+  color: var(--basic-text);
 }
 
 .heading--primary {
@@ -151,7 +149,7 @@ body {
 }
 
 .theme__slider {
-  background-color: var(--very-dark-blue);
+  background-color: var(--keypad-background);
   content: "";
   width: 6rem;
   height: 2rem;
@@ -177,10 +175,10 @@ body {
   margin-top: 3rem;
   width: 100%;
   height: 10rem;
-  background-color: var(--darkest-blue);
+  background-color: var(--input-background);
   border-radius: 7.5px;
   border: none;
-  color: var(--text-white);
+  color: var(--basic-text);
   font-family: inherit;
   font-size: 5rem;
   font-weight: 700;
@@ -199,7 +197,7 @@ input[type="number"] {
 }
 
 .keypad {
-  background-color: var(--very-dark-blue);
+  background-color: var(--keypad-background);
   margin-top: 3rem;
   padding: 2rem;
   width: 100%;
@@ -217,7 +215,7 @@ input[type="number"] {
   text-transform: uppercase;
   font-weight: 700;
   background-color: var(--key-background);
-  color: var(--text-blue);
+  color: var(--key-numbers);
   box-shadow: 0 0.45rem 0 0 var(--key-shadow);
   width: 80%;
   height: 6rem;
@@ -237,7 +235,7 @@ input[type="number"] {
 
 .keypad__btn.keypad__btn--special {
   background-color: var(--key-blue);
-  color: var(--text-white);
+  color: var(--key-text);
   box-shadow: 0 0.45rem 0 0 var(--key-blue-shadow);
 }
 
@@ -247,7 +245,7 @@ input[type="number"] {
 
 .keypad__btn.keypad__btn--equal {
   background-color: var(--key-red);
-  color: var(--text-white);
+  color: var(--key-equal);
   box-shadow: 0 0.45rem 0 0 var(--key-red-shadow);
 }
 
@@ -258,7 +256,7 @@ input[type="number"] {
 .attribution {
   font-size: 1.5rem;
   text-align: center;
-  color: var(--text-white);
+  color: var(--basic-text);
   margin-bottom: 2rem;
 }
 .attribution a {
