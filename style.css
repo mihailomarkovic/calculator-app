@@ -28,6 +28,9 @@ Responisive design
   --key-blue: rgb(99, 112, 151);
   --key-blue-shadow: rgb(64, 78, 114);
   --key-blue-active: rgb(178, 189, 222);
+
+  /* SLIDER */
+  --slider-position: 9%;
 }
 
 .theme_2 {
@@ -53,6 +56,9 @@ Responisive design
   --key-blue: rgb(55, 127, 134);
   --key-blue-shadow: rgb(27, 95, 101);
   --key-blue-active: rgb(125, 200, 207);
+
+  /* SLIDER */
+  --slider-position: 35%;
 }
 
 .theme_3 {
@@ -78,6 +84,9 @@ Responisive design
   --key-blue: rgb(88, 7, 125);
   --key-blue-shadow: rgb(188, 21, 244);
   --key-blue-active: rgb(158, 81, 194);
+
+  /* SLIDER */
+  --slider-position: 66%;
 }
 
 *,
@@ -101,7 +110,7 @@ body {
 
 .container {
   width: 50rem;
-  margin: 7.5rem auto;
+  margin: 5.5rem auto;
 }
 
 .text {
@@ -166,7 +175,7 @@ body {
   width: 1.4rem;
   height: 1.4rem;
   top: 50%;
-  left: 9%;
+  left: var(--slider-position);
   border-radius: 100px;
   background-color: var(--key-red);
   transform: translate(0, -50%);
@@ -260,7 +269,6 @@ input[type="number"] {
   font-size: 1.5rem;
   text-align: center;
   color: var(--basic-text);
-  margin-bottom: 2rem;
 }
 .attribution a {
   color: var(--key-red);
