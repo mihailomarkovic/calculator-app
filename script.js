@@ -27,7 +27,6 @@ const changeTheme = function () {
     setDefaultTheme();
     body.classList.add(`theme_${currTheme}`);
   }
-  console.log(currTheme);
 
   localStorage.setItem("theme", currTheme);
 };
@@ -39,10 +38,50 @@ btnSlider.addEventListener("click", changeTheme);
 const buttons = document.querySelectorAll(".keypad__btn");
 const input = document.getElementById("calc-input");
 
-const typeInScreen = function () {};
-
 buttons.forEach((button) => {
   button.addEventListener("click", function () {
-    input.value += button.innerHTML;
+    let currValue, pastValue, argument;
+    const updateValues = function (past, arg) {
+      pastValue = past;
+      argument = arg;
+    };
+
+    switch (button.innerHTML) {
+      case "del":
+        input.value = "";
+        break;
+      case "+":
+        updateValues(input.value, button.innerHTML);
+        input.value = "";
+        console.log(pastValue, argument);
+        break;
+      case "-":
+        updateValues(input.value, button.innerHTML);
+        input.value = "";
+        console.log(pastValue, argument);
+        break;
+      case "x":
+        updateValues(input.value, button.innerHTML);
+        input.value = "";
+        console.log(pastValue, argument);
+        break;
+      case "/":
+        updateValues(input.value, button.innerHTML);
+        input.value = "";
+        console.log(pastValue, argument);
+        break;
+      case ".":
+        input.value = "1";
+        break;
+      case "reset":
+        input.value = "";
+        break;
+      case "=":
+        input.value = "1";
+        break;
+
+      default:
+        input.value += button.innerHTML;
+    }
   });
 });
