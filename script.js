@@ -37,47 +37,42 @@ btnSlider.addEventListener("click", changeTheme);
 
 const buttons = document.querySelectorAll(".keypad__btn");
 const input = document.getElementById("calc-input");
+let currValue, pastValue, argument, resault;
 
 buttons.forEach((button) => {
   button.addEventListener("click", function () {
-    let currValue, pastValue, argument;
     const updateValues = function (past, arg) {
       pastValue = past;
       argument = arg;
     };
+
+    // const calculate = function (curr, past, arg) {
+    //   return curr;
+    // };
 
     switch (button.innerHTML) {
       case "del":
         input.value = "";
         break;
       case "+":
-        updateValues(input.value, button.innerHTML);
-        input.value = "";
-        console.log(pastValue, argument);
-        break;
       case "-":
-        updateValues(input.value, button.innerHTML);
-        input.value = "";
-        console.log(pastValue, argument);
-        break;
       case "x":
-        updateValues(input.value, button.innerHTML);
-        input.value = "";
-        console.log(pastValue, argument);
-        break;
       case "/":
         updateValues(input.value, button.innerHTML);
         input.value = "";
         console.log(pastValue, argument);
         break;
       case ".":
-        input.value = "1";
+        input.value += button.innerHTML;
         break;
       case "reset":
         input.value = "";
         break;
       case "=":
-        input.value = "1";
+        currValue = input.value;
+        resault = `${pastValue}${argument}${currValue}`;
+        input.value = eval(resault);
+
         break;
 
       default:
