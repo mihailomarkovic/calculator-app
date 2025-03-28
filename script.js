@@ -37,7 +37,7 @@ btnSlider.addEventListener("click", changeTheme);
 
 const buttons = document.querySelectorAll(".keypad__btn");
 const input = document.getElementById("calc-input");
-let currValue, pastValue, argument, resault;
+let currValue, pastValue, argument;
 
 buttons.forEach((button) => {
   button.addEventListener("click", function () {
@@ -46,9 +46,11 @@ buttons.forEach((button) => {
       argument = arg;
     };
 
-    // const calculate = function (curr, past, arg) {
-    //   return curr;
-    // };
+    const calculate = function (curr, past, arg) {
+      let resault = eval(`${past}${arg}${curr}`);
+      if (Number.isInteger(resault)) return resault;
+      else return resault.toFixed(2);
+    };
 
     switch (button.innerHTML) {
       case "del":
@@ -56,11 +58,13 @@ buttons.forEach((button) => {
         break;
       case "+":
       case "-":
-      case "x":
       case "/":
         updateValues(input.value, button.innerHTML);
         input.value = "";
-        console.log(pastValue, argument);
+        break;
+      case "x":
+        updateValues(input.value, "*");
+        input.value = "";
         break;
       case ".":
         input.value += button.innerHTML;
@@ -69,9 +73,7 @@ buttons.forEach((button) => {
         input.value = "";
         break;
       case "=":
-        currValue = input.value;
-        resault = `${pastValue}${argument}${currValue}`;
-        input.value = eval(resault);
+        input.value = calculate(input.value, pastValue, argument);
 
         break;
 
