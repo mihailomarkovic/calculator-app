@@ -44,33 +44,41 @@ buttons.forEach((button) => {
     const updateValues = function (past, arg) {
       pastValue = past;
       argument = arg;
+      input.value = "";
+      currValue = "";
     };
 
     const calculate = function (curr, past, arg) {
       let resault = eval(`${past}${arg}${curr}`);
+      pastValue = resault;
       if (Number.isInteger(resault)) return resault;
       else return resault.toFixed(2);
     };
 
     switch (button.innerHTML) {
       case "del":
+        currValue = pastValue;
         input.value = "";
         break;
       case "+":
       case "-":
       case "/":
-        updateValues(input.value, button.innerHTML);
-        input.value = "";
+        if (!currValue) currValue = input.value;
+
+        updateValues(currValue, button.innerHTML);
         break;
       case "x":
-        updateValues(input.value, "*");
-        input.value = "";
+        if (!currValue) currValue = input.value;
+
+        updateValues(currValue, "*");
         break;
       case ".":
         input.value += button.innerHTML;
         break;
       case "reset":
         input.value = "";
+        pastValue = "";
+        argument = "";
         break;
       case "=":
         input.value = calculate(input.value, pastValue, argument);
@@ -79,6 +87,7 @@ buttons.forEach((button) => {
 
       default:
         input.value += button.innerHTML;
+        if (input.value === "0") input.value += ".";
     }
   });
 });
