@@ -73,7 +73,9 @@ buttons.forEach((button) => {
         updateValues(currValue, "*");
         break;
       case ".":
-        input.value += button.innerHTML;
+        const tempValue = input.value;
+        if (!tempValue.includes(".")) input.value += button.innerHTML;
+        if (tempValue === "") input.value = "0.";
         break;
       case "reset":
         input.value = "";
