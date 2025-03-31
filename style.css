@@ -264,3 +264,23 @@ body {
 .attribution a {
   color: var(--key-red);
 }
+
+/* MEDIA QUERIES */
+
+@media (max-width: 34em) {
+  html {
+    font-size: 50%;
+  }
+  .container {
+    margin: 10rem auto;
+  }
+}
+
+@media (max-width: 26.25em) {
+  html {
+    font-size: 34%;
+  }
+  .container {
+    margin: 25rem auto;
+  }
+}
